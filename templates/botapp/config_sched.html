@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1> Edit The Schedule </h1>
+  </div>
+  <div class="container">
+    <form action="" method="post">{% csrf_token %}
+      <table class="table">
+        <tbody>
+          <tr>
+            <td><label for="{{ form.monday.id_for_label }}">{{ form.monday.label }}</label></td>
+            <td><input type="checkbox" name="{{ form.monday.name }}" id="{{ form.monday.id_for_label }}" {% if form.monday.value %}checked{% endif %} class="form-control"></td>
+          </tr>
+          <tr>
+            <td><label for="{{ form.tuesday.id_for_label }}">{{ form.tuesday.label }}</label></td>
+            <td><input type="checkbox" name="{{ form.tuesday.name }}" id="{{ form.tuesday.id_for_label }}" {% if form.tuesday.value %}checked{% endif %} class="form-control"></td>
+          </tr>
+          <tr>
+            <td><label for="{{ form.wednesday.id_for_label }}">{{ form.wednesday.label }}</label></td>
+            <td><input type="checkbox" name="{{ form.wednesday.name }}" id="{{ form.wednesday.id_for_label }}" {% if form.wednesday.value %}checked{% endif %} class="form-control"></td>
+          </tr>
+          <tr>
+            <td><label for="{{ form.thursday.id_for_label }}">{{ form.thursday.label }}</label></td>
+            <td><input type="checkbox" name="{{ form.thursday.name }}" id="{{ form.thursday.id_for_label }}" {% if form.thursday.value %}checked{% endif %} class="form-control"></td>
+          </tr>
+          <tr>
+            <td><label for="{{ form.friday.id_for_label }}">{{ form.friday.label }}</label></td>
+            <td><input type="checkbox" name="{{ form.friday.name }}" id="{{ form.friday.id_for_label }}" {% if form.friday.value %}checked{% endif %} class="form-control"></td>
+          </tr>
+          <tr>
+            <td><label for="{{ form.saturday.id_for_label }}">{{ form.saturday.label }}</label></td>
+            <td><input type="checkbox" name="{{ form.saturday.name }}" id="{{ form.saturday.id_for_label }}" {% if form.saturday.value %}checked{% endif %} class="form-control"></td>
+          </tr>
+          <tr>
+            <td><label for="{{ form.sunday.id_for_label }}">{{ form.sunday.label }}</label></td>
+            <td><input type="checkbox" name="{{ form.sunday.name }}" id="{{ form.sunday.id_for_label }}" {% if form.sunday.value %}checked{% endif %} class="form-control"></td>
+          </tr>
+        </tbody>
+      </table>
+      <input type="submit" class="btn btn-primary" value="Update Schedule"></input>
+    </form>
+  </div>
+{% endblock content %}

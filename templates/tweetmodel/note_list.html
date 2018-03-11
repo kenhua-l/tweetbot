@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <a role="button" class="float-right btn btn-primary" style="width:150px;" href="{% url 'note_new' %}">Add New Note</a>
+    <h1> List of Notes </h1>
+  </div>
+  <div class="container list-container">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Note</th>
+          <th scope="col">Link</th>
+          <th scope="col">Topic</th>
+          <th scope="col">Count</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for note in object_list %}
+          <tr>
+            <th scope="row">{{ note.id }}</th>
+            <td>{{ note.note }}</td>
+            <td>{% if note.link != None %}<a href="{{ note.link }}">{{ note.link }}</a>{% else %}{{ note.link }}{% endif %}</td>
+            <td>{{ note.topic }}</td>
+            <td>{{ note.count }}</td>
+            <td>
+              <div class="btn-group-vertical">
+                <a role="button" class="btn btn-outline-primary" href="{% url 'tweet_note' note.pk %}">Tweet This!</a>
+                <a role="button" class="btn btn-outline-info" href="{% url 'note_edit' note.pk %}">Edit This</a>
+                <a role="button" class="btn btn-outline-danger" href="{% url 'note_delete' note.pk %}">Delete This</a>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock content %}

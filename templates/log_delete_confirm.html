@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1> Delete Log </h1>
+  </div>
+  <div class="container">
+    <div class="p-3 mb-2 bg-danger text-white confirm-delete">
+      Are you sure you want to delete the logs? Remember to download the logs to help in development before deleting them.
+    </div>
+    <a role="button" class="btn btn-danger" style="width:150px;" href="{% url 'delete_log' %}">YES</a>
+    <a role="button" class="btn btn-primary" style="width:150px;" href="{% url 'download_log' %}">Download Log</a>
+    <a role="button" class="btn btn-info" style="width:150px;"  href="{% url 'log' %}">NO</a>
+  </div>
+{% endblock content %}

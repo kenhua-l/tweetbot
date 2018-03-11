@@ -1,0 +1,74 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1> Configuration </h1>
+    <p>Some configuration values are not shown here for security reason. Please check in admin (link at top-right corner).</p>
+  </div>
+  <div class="container">
+    <!-- Twitter Configuration -->
+    <h4>Twitter Configuration</h4>
+    <p>
+      Only one Twitter account can be configured currently.<br/>
+      {% if activeTwitterProfile %}
+        The current twitter account configured is
+        <a href="https://twitter.com/{{ activeTwitterProfile }}" target="_blank">@{{ activeTwitterProfile }}</a>
+        (Edit the twitter account in admin).
+      {% else %}
+        There are currently no Twitter Account set up yet. Go to <a rhref="/admin">admin</a> to set it up.
+      {% endif %}
+    </p>
+    <br />
+
+    <!-- Schedule Configuration -->
+    {% for sched in schedule %}
+      <a role="button" class="float-right btn btn-primary" style="width:150px;" href="{% url 'config_sched' sched.pk %}">Edit Schedule</a>
+      <h4>Schedule Configuration</h4>
+      <p>The current schedule for tweeting is:</p>
+      <div class="d-flex justify-content-center flex-md-row flex-column">
+        <div class="pl-md-4 pr-4 day {% if sched.monday %}active-day{% endif %}">Monday</div>
+        <div class="pl-md-4 pr-4 day {% if sched.tuesday %}active-day{% endif %}">Tuesday</div>
+        <div class="pl-md-4 pr-4 day {% if sched.wednesday %}active-day{% endif %}">Wednesday</div>
+        <div class="pl-md-4 pr-4 day {% if sched.thursday %}active-day{% endif %}">Thursday</div>
+        <div class="pl-md-4 pr-4 day {% if sched.friday %}active-day{% endif %}">Friday</div>
+        <div class="pl-md-4 pr-4 day {% if sched.saturday %}active-day{% endif %}">Saturday</div>
+        <div class="pl-md-4 pr-4 day {% if sched.sunday %}active-day{% endif %}">Sunday</div>
+      </div>
+    {% endfor %}
+    <br />
+    <br />
+
+    <!-- Topic Configuration -->
+    <a role="button" class="float-right btn btn-primary" style="width:150px;" href="{% url 'topic_new' %}">Add New Topic</a>
+    <h4>Topic Configuration</h4>
+    <p>Add, Edit, and Delete the topic choices.</p>
+
+    <div class="list-container">
+      <table class="table" style="text-align:center">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Topic</th>
+            <th scope="col">Rank</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for topic in topics %}
+            <tr>
+              <th>{{ topic.title }}</th>
+              <td>{{ topic.rank }}</td>
+              <td>
+                <div class="btn-group-vertical">
+                  <a role="button" class="btn btn-outline-info" href="{% url 'topic_edit' topic.pk %}">Edit This</a>
+                  <a role="button" class="btn btn-outline-danger" href="{% url 'topic_delete' topic.pk %}">Delete This</a>
+                </div>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+{% endblock content %}

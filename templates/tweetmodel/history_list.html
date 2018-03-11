@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1> List of History (Notes Tweeted)</h1>
+  </div>
+  <div class="container list-container">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Note ID</th>
+          <th scope="col">Topic</th>
+          <th scope="col">Tweet Timestamp</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for history in object_list %}
+          <tr>
+            <th scope="row">{{ history.id }}</th>
+            <td>{{ history.note_id }}</td>
+            <td>{{ history.topic }}</td>
+            <td>{{ history.timestamp }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock content %}

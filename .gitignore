@@ -1,0 +1,4 @@
+.DS_Store
+__py__cache/
+migrations/
+!migrations/__init__.py

@@ -1,0 +1,66 @@
+html{
+  height:100%;
+}
+
+body {
+  position: relative;
+  padding-top: 55px;
+  background-color: #FFFFFF;
+  min-height:100%;
+}
+
+main{
+  padding-top: 25px;
+  padding-bottom:60px;
+}
+
+.navbar{
+  background-color: #BBDEFB;
+}
+
+main > .container {
+  background-color: #F1F5FF;
+  border-radius: 10px;
+  padding: 25px 50px;
+}
+
+.list-container {
+  padding-top: 30px;
+  overflow-x: auto;
+}
+
+.confirm-delete {
+  font-size: 20px;
+}
+
+.day {
+  padding: 5px;
+  color: white;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  margin: 5px 10px;
+}
+.active-day {
+  color: black;
+  background-color: #20c997;
+}
+
+.table .thead-light th{
+  background-color: #2196F3;
+  border-color: #BBDEFB;
+  color: black;
+}
+
+footer > .container-fluid{
+  background-color: #BBDEFB;
+  text-align: center;
+  padding: 10px;
+}
+
+footer {
+   position:absolute;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background:#BBDEFB;
+}

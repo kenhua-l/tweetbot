@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1> System Log (for dev)</h1>
+    <a role="button" class="btn btn-primary" style="width:150px;" href="{% url 'download_log' %}">Download Log</a>
+    <a role="button" class="btn btn-danger" style="width:150px;" href="{% url 'delete_log_confirm' %}">Delete Log</a>
+  </div>
+  <div class="container">
+    <p>{{ file_ | linebreaks }}</p>
+    <hr>
+  </div>
+{% endblock content %}
